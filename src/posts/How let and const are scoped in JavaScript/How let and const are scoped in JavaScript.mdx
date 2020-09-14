@@ -56,7 +56,7 @@ console.log(width); // error, width is not defined
 
 ```
 
-It won't work. Why won't it work? Because **`width is only scoped to that function**. It is a local variable to our setWidth function. It is not available outside the confines. Think of the curly brackets as gates, or function jail, and our var` variables are in there.
+It won't work. Why won't it work? Because **`width` is only scoped to that function**. It is a local variable to our setWidth function. It is not available outside the confines. Think of the curly brackets as gates, or function jail, and our var` variables are in there.
 
 That's important for us to know. If you do want to globally scope width, we need to declare it outside the function like so, and update it inside the function:
 
@@ -89,9 +89,9 @@ if(age > 12) {
 
 Just as an aside, you can see I'm using back ticks in this example, but I'm going to tell you all about this in the "Template Strings" section.
 
-The one thing that is a little bit strange here is that `var dogYears is just a temporary variable, and I just needed this real quick in order to calculate something and then stick it into a console.log or stick it into a string or whatever. If you go to your browser console and call dogYears, you'll see that it's leaked outside of the if statement and it is now a global variable that lives on window`, which isn't really what we want.
+The one thing that is a little bit strange here is that `var dogYears` is just a temporary variable, and I just needed this real quick in order to calculate something and then stick it into a console.log or stick it into a string or whatever. If you go to your browser console and call dogYears, you'll see that it's leaked outside of the if statement and it is now a global variable that lives on `window`, which isn't really what we want.
 
-Even though this was a temporary variable that I only needed inside of one if statement, because `var variables are **function scoped** and remember, there's no function here, it's going to be **globally scoped**. It's scoped to the entire window, which is a little bit of a pain here. That is one of the benefits to using let and const`. Instead of being scoped to the function, it is **block scoped**, which is something new.
+Even though this was a temporary variable that I only needed inside of one if statement, because `var variables` are **function scoped** and remember, there's no function here, it's going to be **globally scoped**. It's scoped to the entire window, which is a little bit of a pain here. That is one of the benefits to using `let` and `const`. Instead of being scoped to the function, it is **block scoped**, which is something new.
 
 What is a block? Here is a great example:
 
@@ -123,6 +123,6 @@ console.log(dogYears); // error because it's scoped only to the above block
 
 ```
 
-...and I refresh, everything works as we would want. However, if you call `dogYears in the browser console, it says, "Dog years is not defined." Why? Because I declared it as a **let variable**. It is only declared inside of a block scope, now, not a global scope like var`, a block scope, and that temporary variable has not leaked out of the block.
+...and I refresh, everything works as we would want. However, if you call `dogYears` in the browser console, it says, "Dog years is not defined." Why? Because I declared it as a **`let` variable**. It is only declared inside of a block scope, now, not a global scope like `var`, a block scope, and that temporary variable has not leaked out of the block.
 
 You can also use `const` and get the same results, which is what we will talk about in the <a href="https://es6.io">ES6.io</a> video.
